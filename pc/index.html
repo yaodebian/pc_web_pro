@@ -9,6 +9,13 @@
   <title>三国杀</title>
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/index.css">
+  <script type="text/javascript">
+    try {
+      if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) { // 触屏手机版地址
+        window.location.href = "http://localhost:8080/mobile";
+      }
+    } catch (e) {}
+  </script>
 </head>
 
 <body>
@@ -114,7 +121,7 @@
     </div>
   </div>
   <!-- 二维码 -->
-  <a  class="QRCode_Box" target="_blank" href="http://www.pgyer.com/sanguosha"></a>
+  <a class="QRCode_Box" target="_blank" href="http://www.pgyer.com/sanguosha"></a>
   <!-- dialog -->
   <div class="dialog-box dialog-tip hide">
     <div class="dialog-top">提示</div>
