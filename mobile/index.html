@@ -13,7 +13,7 @@
       var expires = ''
       if (days) {
         var d = new Date()
-        d.setTime(d.getTime() + (days*24*60*60*1000));
+        d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000))
         expires = '; expires=' + d.toGMTString()
       }
       domain = domain ? '; domain=' + domain : ''
@@ -34,19 +34,7 @@
     }
 
     function eraseCookie(name, domain, path) {
-      setCookie(name, '', -1, domain, path);
-    }
-
-    let cookie = readCookie('mobile_request')
-    if (cookie === null) {
-      try {
-        if (!/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) { // pc端
-          window.location.href = "http://localhost:8080/pc"
-          setCookie('mobile_request', 0, 2, 'localhost', '/')
-        } else {
-          setCookie('mobile_request', 1, 2, 'localhost', '/')
-        }
-      } catch (e) {}
+      setCookie(name, '', -1, domain, path)
     }
   </script>
 </head>
@@ -134,6 +122,10 @@
         <li class="right2 tool-item" data-id="4_3"></li>
       </ul>
     </div>
+    <ul class="device">
+      <li class="device-item"><a href="http://localhost:8080/mobile" class="mobile">手机版</a></li>
+      <li class="device-item"><a href="http://localhost:8080/pc" class="pc">电脑版</a></li>
+    </ul>
   </div>
   <!-- dialog -->
   <div class="dialog-box dialog-tip hide">
@@ -152,9 +144,11 @@
 <script src="./js/lib/jquery-3.3.1.min.js"></script>
 <script src="./js/lib/ajax.js"></script>
 <script src="./js/lib/testdata.js"></script>
-<script src="./js/lib/zepto.js"></script>
-<script src="./js/lib/event.js"></script>
-<script src="./js/lib/touch.js"></script>
 <script src="./js/index.js"></script>
+<script>
+  $('.pc').on('click', function () {
+    setCookie('mobile_request', 0, 2, 'localhost', '/')
+  })
+</script>
 
 </html>
